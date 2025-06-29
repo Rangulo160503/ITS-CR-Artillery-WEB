@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Abstracciones.Interfaces.API
+namespace Abstracciones.Interfaces.Reglas
 {
-    public class IReordenInventarioController
+    public class IRevisionReglas
     {
     }
 }

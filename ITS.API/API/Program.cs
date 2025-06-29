@@ -1,10 +1,12 @@
 using Abstracciones.Interfaces.DA;
 using Abstracciones.Interfaces.Flujo;
+using Abstracciones.Interfaces.Reglas;
 using Abstracciones.Modelos;
 using DA;
 using DA.Repositorios;
 using Flujo;
 using Microsoft.IdentityModel.Tokens;
+using Reglas;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -67,6 +69,10 @@ builder.Services.AddScoped<IMovimientoInventarioFlujo, MovimientoInventarioFlujo
 // Reorden de Inventario
 builder.Services.AddScoped<IPoliticaReabastecimientoDA, PoliticaReabastecimientoDA>();
 builder.Services.AddScoped<IPoliticaReabastecimientoFlujo, PoliticaReabastecimientoFlujo>();
+
+// Reaastecimiento Reglas
+builder.Services.AddScoped<IReabastecimientoReglas, ReabastecimientoReglas>();
+
 
 
 var app = builder.Build();
