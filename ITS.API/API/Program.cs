@@ -1,12 +1,14 @@
 using Abstracciones.Interfaces.DA;
 using Abstracciones.Interfaces.Flujo;
 using Abstracciones.Interfaces.Reglas;
+using Abstracciones.Interfaces.Servicios;
 using Abstracciones.Modelos;
 using DA;
 using DA.Repositorios;
 using Flujo;
 using Microsoft.IdentityModel.Tokens;
 using Reglas;
+using Servicios;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -72,6 +74,14 @@ builder.Services.AddScoped<IPoliticaReabastecimientoFlujo, PoliticaReabastecimie
 
 // Reaastecimiento Reglas
 builder.Services.AddScoped<IReabastecimientoReglas, ReabastecimientoReglas>();
+
+// Inventario externo (MockAPI)
+builder.Services.AddScoped<IInventarioServicio, InventarioServicio>();
+builder.Services.AddScoped<IInventarioFlujo, InventarioFlujo>();
+
+// Configuración y HTTP
+builder.Services.AddScoped<IConfiguracion, Configuracion>();
+
 
 
 
